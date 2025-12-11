@@ -6,6 +6,20 @@ __pycache__/
 # C extensions
 *.so
 
+# Arquivos de Ambientes Virtuais e Cache
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints
+
+# Dados e Modelos Treinados (CRUCIAL)
+data/
+*.csv
+*.pkl
+*.joblib
+modelo_random_forest.pkl
+scaler_amount.pkl
+
 # Distribution / packaging
 .Python
 build/
