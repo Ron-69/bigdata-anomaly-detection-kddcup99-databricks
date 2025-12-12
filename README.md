@@ -59,8 +59,30 @@ O projeto é dividido em notebooks que seguem o ciclo de vida do MLOps:
 
 ## ⚙️ Instalação e Execução
 
-Este projeto deve ser clonado diretamente no seu ambiente **Databricks Repositories (Git Folder)**.
+Para garantir a total reprodução do pipeline, siga os passos abaixo sequencialmente:
 
-1.  **Clone o Repositório:** No Databricks Workspace, navegue até 'Repos' e clone este URL.
-2.  **Anexe o Cluster:** Anexe os notebooks a um cluster PySpark ativo.
-3.  **Execução:** Execute os notebooks sequencialmente (01 ao 04) para replicar todo o pipeline de MLOps.
+### 1. Preparação do Dataset e do Ambiente UC
+
+A. **Download do Dataset:**
+   * Acesse a página do dataset **[KDDCup 99 no Kaggle](https://www.kaggle.com/datasets/vishnuvarthanan/kddcup-99-dataset)** ou outra fonte confiável.
+   * Faça o download do arquivo principal (`kddcup.data_10_percent.gz` ou a versão completa).
+
+B. **Criação do Volume no Unity Catalog (UC):**
+   * No Databricks Workspace, navegue até a interface do **Catalog** (Catálogo).
+   * **Crie o Catálogo:** `bigdata_anomaly_detection_kddcup99_catalogue`.
+   * **Crie o Schema (Banco de Dados):** `default`.
+   * **Crie o Volume:** `kdd_volume` dentro do schema `default`.
+   * **Caminho do Volume:** O caminho final será semelhante a `/Volumes/bigdata_anomaly_detection_kddcup99_catalogue/default/kdd_volume`.
+
+C. **Upload do Dataset:**
+   * Utilize a interface de **Upload** do Databricks (ou dbutils) para carregar o arquivo `.gz` ou `.data` baixado **diretamente para o Volume `kdd_volume`**.
+
+### 2. Execução dos Notebooks
+
+1. **Clone o Repositório:** No Databricks Workspace, vá até 'Repos' e clone este URL.
+2. **Anexe o Cluster:** Anexe os notebooks a um cluster PySpark ativo (recomendado o uso de um cluster **Serverless** ou **Shared**).
+3. **Execução Sequencial:** Execute os notebooks na seguinte ordem:
+    * **`01_setup_environment.ipynb`:** (Confirma as permissões de acesso ao Volume e verifica o arquivo raw).
+    * **`02_etl_preprocessing.ipynb`:** Executa ETL, Scaling, PCA e Split (Treino/Teste).
+    * **`03_random_forest_classification.ipynb`:** Treinamento e Avaliação do modelo RF.
+    * **`04_model_registration_mlflow.ipynb`:** Registro do modelo (Versão N) no Unity Catalog.
