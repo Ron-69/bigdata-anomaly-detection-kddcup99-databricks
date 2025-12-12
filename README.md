@@ -1,6 +1,10 @@
 # bigdata-anomaly-detection-kddcup99-databricks
 Implementação de um pipeline de MLOps completo no Databricks/PySpark para Detecção de Intrusão de Rede (Anomalias) no dataset KDDCup 99.
 
+=======
+# bigdata-anomaly-detection-kddcup99-databricks
+Implementação de um pipeline de MLOps completo no Databricks/PySpark para Detecção de Intrusão de Rede (Anomalias) no dataset KDDCup 99.
+
 # 🛡️ Detecção Distribuída de Intrusão em Escala com PySpark (Databricks)
 
 ## 🎯 Objetivo do Projeto
@@ -65,6 +69,9 @@ Para garantir a total reprodução do pipeline, siga os passos abaixo sequencial
 
 A. **Download do Dataset:**
    * Acesse a página do dataset **[KDDCup 99 no Kaggle](https://www.kaggle.com/datasets/galaxyh/kdd-cup-1999-data)** ou outra fonte confiável.
+=======
+   * Acesse a página do dataset **[KDDCup 99 no Kaggle](https://www.kaggle.com/datasets/vishnuvarthanan/kddcup-99-dataset)** ou outra fonte confiável.
+>>>>>>> Stashed changes
    * Faça o download do arquivo principal (`kddcup.data_10_percent.gz` ou a versão completa).
 
 B. **Criação do Volume no Unity Catalog (UC):**
@@ -72,6 +79,9 @@ B. **Criação do Volume no Unity Catalog (UC):**
    * **Crie o Catálogo:** `bigdata_anomaly_detection_kddcup99_catalogue`.
    * **Crie o Schema (Banco de Dados):** `default`.
    * **Crie o Volume:** `kdd_volume` dentro do schema `default`.
+=======
+   * **Crie o Volume:** `Executando a célula #1 do note 01_uc_setup_data_upload.ipynb`.
+>>>>>>> Stashed changes
    * **Caminho do Volume:** O caminho final será semelhante a `/Volumes/bigdata_anomaly_detection_kddcup99_catalogue/default/kdd_volume`.
 
 C. **Upload do Dataset:**
@@ -86,3 +96,6 @@ C. **Upload do Dataset:**
     * **`02_etl_preprocessing.ipynb`:** Executa ETL, Scaling, PCA e Split (Treino/Teste).
     * **`03_random_forest_classification.ipynb`:** Treinamento e Avaliação do modelo RF.
     * **`04_model_registration_mlflow.ipynb`:** Registro do modelo (Versão N) no Unity Catalog.
+=======
+    * **`04_model_registration_mlflow.ipynb`:** Registro do modelo (Versão N) no Unity Catalog.
+>>>>>>> Stashed changes
