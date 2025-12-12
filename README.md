@@ -64,7 +64,7 @@ Para garantir a total reprodução do pipeline, siga os passos abaixo sequencial
 ### 1. Preparação do Dataset e do Ambiente UC
 
 A. **Download do Dataset:**
-   * Acesse a página do dataset **[KDDCup 99 no Kaggle](https://www.kaggle.com/datasets/vishnuvarthanan/kddcup-99-dataset)** ou outra fonte confiável.
+   * Acesse a página do dataset **[KDDCup 99 no Kaggle](https://www.kaggle.com/datasets/galaxyh/kdd-cup-1999-data)** ou outra fonte confiável.
    * Faça o download do arquivo principal (`kddcup.data_10_percent.gz` ou a versão completa).
 
 B. **Criação do Volume no Unity Catalog (UC):**
